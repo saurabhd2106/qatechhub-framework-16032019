@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="HomePage" parallel="tests">
+	<test name="Remote Chrome Tests">
+		<parameter name="browserType" value="remote-chrome"></parameter>
+		<classes>
+			<class name="com.mercuryTravel.tests.HomePageTests" />
+		</classes>
+	</test>
+	<test name="Remote Firefox Tests">
+	    <parameter name="browserType" value="remote-firefox"></parameter>
+		<classes>
+			<class name="com.mercuryTravel.tests.HomePageTests" />
+		</classes>
+	</test> <!-- All Tests -->
+</suite> <!-- HomePage -->

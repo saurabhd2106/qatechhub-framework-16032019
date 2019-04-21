@@ -1,45 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="1569" started-at="2019-04-06T07:02:41Z" finished-at="2019-04-06T07:02:42Z">
+  <suite name="HomePage" duration-ms="17371" started-at="2019-04-20T05:43:05Z" finished-at="2019-04-20T05:43:23Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="1569" started-at="2019-04-06T07:02:41Z" finished-at="2019-04-06T07:02:42Z">
-      <class name="demo.DemoTestDataProvider">
-        <test-method status="PASS" signature="printTestData(java.lang.String, java.lang.String)[pri:0, instance:demo.DemoTestDataProvider@6f7fd0e6]" name="printTestData" duration-ms="19" started-at="2019-04-06T07:02:42Z" data-provider="getData" finished-at="2019-04-06T07:02:42Z">
+    <test name="All Tests" duration-ms="17371" started-at="2019-04-20T05:43:05Z" finished-at="2019-04-20T05:43:23Z">
+      <class name="com.mercuryTravel.tests.HomePageTests">
+        <test-method status="PASS" signature="preSetup()[pri:0, instance:com.mercuryTravel.tests.HomePageTests@5622fdf]" name="preSetup" is-config="true" duration-ms="376" started-at="2019-04-20T05:43:05Z" finished-at="2019-04-20T05:43:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preSetup -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.mercuryTravel.tests.HomePageTests@5622fdf]" name="setup" is-config="true" duration-ms="13590" started-at="2019-04-20T05:43:05Z" finished-at="2019-04-20T05:43:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="verifyLoginToMercuryTravelAsUserWithCorrectCredentials()[pri:0, instance:com.mercuryTravel.tests.HomePageTests@5622fdf]" name="verifyLoginToMercuryTravelAsUserWithCorrectCredentials" duration-ms="3120" started-at="2019-04-20T05:43:19Z" finished-at="2019-04-20T05:43:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLoginToMercuryTravelAsUserWithCorrectCredentials -->
+        <test-method status="PASS" signature="afterAMethod(org.testng.ITestResult)[pri:0, instance:com.mercuryTravel.tests.HomePageTests@5622fdf]" name="afterAMethod" is-config="true" duration-ms="4" started-at="2019-04-20T05:43:22Z" finished-at="2019-04-20T05:43:22Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[saurabh.d2106@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Pro@1234]]>
+                <![CDATA[[TestResult name=verifyLoginToMercuryTravelAsUserWithCorrectCredentials status=SUCCESS method=HomePageTests.verifyLoginToMercuryTravelAsUserWithCorrectCredentials()[pri:0, instance:com.mercuryTravel.tests.HomePageTests@5622fdf] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- printTestData -->
-        <test-method status="PASS" signature="printTestData(java.lang.String, java.lang.String)[pri:0, instance:demo.DemoTestDataProvider@6f7fd0e6]" name="printTestData" duration-ms="3" started-at="2019-04-06T07:02:42Z" data-provider="getData" finished-at="2019-04-06T07:02:42Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[gaurav@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[xmy@123]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- afterAMethod -->
+        <test-method status="PASS" signature="cleanup()[pri:0, instance:com.mercuryTravel.tests.HomePageTests@5622fdf]" name="cleanup" is-config="true" duration-ms="618" started-at="2019-04-20T05:43:22Z" finished-at="2019-04-20T05:43:23Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- printTestData -->
-      </class> <!-- demo.DemoTestDataProvider -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- cleanup -->
+        <test-method status="PASS" signature="postCleanup()[pri:0, instance:com.mercuryTravel.tests.HomePageTests@5622fdf]" name="postCleanup" is-config="true" duration-ms="685" started-at="2019-04-20T05:43:23Z" finished-at="2019-04-20T05:43:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postCleanup -->
+      </class> <!-- com.mercuryTravel.tests.HomePageTests -->
+    </test> <!-- All Tests -->
+  </suite> <!-- HomePage -->
 </testng-results>

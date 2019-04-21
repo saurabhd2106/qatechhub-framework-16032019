@@ -1,11 +1,15 @@
 package commonLibs.implementation;
 
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import commonLibs.contracts.IDriver;
 
@@ -13,6 +17,7 @@ public class CommonDriver implements IDriver {
 
 	private WebDriver driver;
 
+	private ChromeOptions chromeOptions;
 	private int pageLoadTimeout;
 	private int elementDetectionTimeout;
 
@@ -50,6 +55,29 @@ public class CommonDriver implements IDriver {
 					"C:/Users/Saurabh Dhingra/workspace/libs/MicrosoftWebDriver.exe");
 
 			driver = new EdgeDriver();
+		} else if (browserType.equalsIgnoreCase("headless")) {
+			chromeOptions = new ChromeOptions();
+			System.setProperty("webdriver.chrome.driver",
+					"C:/Users/Saurabh Dhingra/workspace/libs/chromedriver2.45/chromedriver.exe");
+
+			chromeOptions.addArguments("headless");
+
+			driver = new ChromeDriver(chromeOptions);
+		}
+
+		else if (browserType.equalsIgnoreCase("remote-chrome")) {
+
+			chromeOptions = new ChromeOptions();
+
+			URL remoteUrl = new URL("http://192.168.1.5:4444/wd/hub");
+			driver = new RemoteWebDriver(remoteUrl, chromeOptions);
+		
+		} else if (browserType.equalsIgnoreCase("remote-firefox")) {
+
+			FirefoxOptions firefoxOptions = new FirefoxOptions();
+
+			URL remoteUrl = new URL("http://192.168.1.5:4444/wd/hub");
+			driver = new RemoteWebDriver(remoteUrl, firefoxOptions);
 		} else {
 			throw new Exception("Invalid Browser ... " + browserType);
 		}

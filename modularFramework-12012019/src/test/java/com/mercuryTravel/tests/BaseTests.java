@@ -9,6 +9,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -59,12 +60,25 @@ public class BaseTests {
 
 	}
 
-	@BeforeClass
+	@BeforeClass(enabled=true)
 	public void setup() throws Exception {
 
 		extentTest = extentReport.createTest("Setup : Invoking browser");
 
 		invokeBrowser();
+
+		initializePages();
+
+	}
+	
+	//For Selenium Grid Only
+	@Parameters("browserType")
+	@BeforeClass(enabled=false)
+	public void setup(String browserType) throws Exception {
+
+	//	extentTest = extentReport.createTest("Setup : Invoking browser");
+
+		invokeBrowser(browserType);
 
 		initializePages();
 
@@ -118,6 +132,23 @@ public class BaseTests {
 
 	private void invokeBrowser() throws Exception {
 		String browserType = configProperties.getProperty("browserType");
+		cmnDriver = new CommonDriver(browserType);
+
+		int pageloadTimeout = Integer.parseInt(configProperties.getProperty("pageloadTimeout"));
+		cmnDriver.setPageLoadTimeout(pageloadTimeout);
+
+		int elementDetectionTimeout = Integer.parseInt(configProperties.getProperty("elementDetectionTimeout"));
+		cmnDriver.setElementDetectionTimeout(elementDetectionTimeout);
+
+		String baseUrl = configProperties.getProperty("baseUrl");
+		cmnDriver.navigateToFirstUrl(baseUrl);
+
+		driver = cmnDriver.getDriver();
+
+	}
+	
+	//For Selenium Grid only
+	private void invokeBrowser(String browserType) throws Exception {
 		cmnDriver = new CommonDriver(browserType);
 
 		int pageloadTimeout = Integer.parseInt(configProperties.getProperty("pageloadTimeout"));
